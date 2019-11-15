@@ -88,32 +88,39 @@ a:active { text-decoration: none }
 
 /* ---------- LAYOUT ---------- *//* -------------------- */
 
-.flex-container-around {
-  display: flex;
-  justify-content: space-around;
-}
-
-.flex-container-center {
-  display: flex;
-  justify-content: center;
-}
-
 .flex-container-between {
   display: flex;
   justify-content: space-between;
 }
 
-.flex-container-left {
+.flex-container-center-column {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-container-center-row {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-container-left-row  {
   display: flex;
   justify-content: flex-start;
 }
 
+.flex-container-left-column {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
 /* 'float: right' for last child in flexbox container */
-.flex-container-left-last-item {
+.flex-container-left-row-last-item  {
   margin-left: auto;
 }
 
-.flex-container-right {
+.flex-container-right-row {
   display: flex;
   justify-content: flex-end;
 }
