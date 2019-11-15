@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 
 function App() {
-
-  const NE = {
+  
+  const NE = [
+    {
       "rowId": 808,
       "orderId": "CA-2015-140921",
       "orderDate": "2/3/15",
@@ -25,8 +26,50 @@ function App() {
       "quantity": 2,
       "discount": 0,
       "profit": 11.076
-    };
+    },
+    {
+      "rowId": 23,
+      "orderId": "CA-2016-137330",
+      "orderDate": "12/9/16",
+      "shipDate": "12/13/16",
+      "shipMode": "Standard Class",
+      "customerId": "KB-16585",
+      "customerName": "Ken Black",
+      "segment": "Corporate",
+      "country": "United States",
+      "city": "Fremont",
+      "state": "Nebraska",
+      "postalCode": 68025,
+      "region": "Central",
+      "productId": "OFF-AP-10001492",
+      "category": "Office Supplies",
+      "subCategory": "Furnishings",
+      "productName": "Acco Six-Outlet Power Strip, 4' Cord Length",
+      "sales": 60.34,
+      "quantity": 7,
+      "discount": 0,
+      "profit": 15.6884
+    },
+  ];
 
+  let totalBookCases = 0;
+  let totalChairs = 0;
+  let totalFurnishings = 0;
+  let totalTables = 0;
+
+  NE.forEach(obj => {
+    if (obj.subCategory === 'Bookcases') {
+      totalBookcases += obj.sales;
+    } else if (obj.subCategory === 'Chairs') {
+      totalChairs += obj.sales;
+    } else if (obj.subCategory === 'Furnishings') {
+      totalFurnishings += obj.sales;
+    } else if (obj.subCategory === 'Tables') {
+      totalTables += obj.sales;
+    }
+  });
+
+  console.log(totalBookCases);
   return (
     <div className='App'>
       <div className='page-container'>
@@ -72,9 +115,9 @@ function App() {
           <div className='theme-light-gray-background'>
             <div className='pivot-data base-font-xs mt15'>
               <div className='flex-container-center-column'>
-              <div className='pb10'>Bookcases</div>
+              <div className='pb10'>{totalBookcases}</div>
               <div className='pb10'>Chairs</div>
-              <div className='pb10'>{NE.sales}</div>
+              <div className='pb10'>{NE[0].sales}</div>
               <div className='pb10'>Tables</div>
               </div>
             </div>
