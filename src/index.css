@@ -2,6 +2,8 @@
 
 * {
   box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 body, html {
@@ -24,12 +26,14 @@ a:active { text-decoration: none }
 .error-red { color: #cd2026; }
 .light-gray { color: #efefef; }
 .medium-gray { color: #a7a7a7; }
+.off-white { color: #f2f3f4; }
 .white { color: white; }
 .white-background { background-color: white; }
 
   /* ---------- PROJECT-SPECIFIC ---------- */
 
   /* blues */
+  .theme-dark-blue-background { background-color: #052b71; }
 
   /* greens */
 
@@ -78,7 +82,8 @@ a:active { text-decoration: none }
 .base-font-xxs { font-size: .65rem; }
 
 .heading-lg { font-size: 1.6rem;}
-.heading-sm { font-size: .9rem; }
+.heading-md { font-size: .9rem; }
+.heading-sm { font-size: .7rem; }
 
 /* ---------- LAYOUT ---------- *//* -------------------- */
 
@@ -103,7 +108,7 @@ a:active { text-decoration: none }
 }
 
 /* 'float: right' for last child in flexbox container */
-.flex-container-left .last-div {
+.flex-container-left-last-item {
   margin-left: auto;
 }
 
