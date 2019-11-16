@@ -1,0 +1,28 @@
+.page-container {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 40px;
+}
+
+.pivot-banner {
+  border-bottom: 3px solid black;
+  height: 75px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.pivot-banner-static, .pivot-header-static {
+  width: 300px;
+}
+
+.pivot-data {
+  height: 75px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 170px;
+}
+
+.pivot-header {
+  padding-left: 15px;
+  padding-right: 15px;
+}
