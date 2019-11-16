@@ -22,8 +22,8 @@ class Table extends React.Component {
     return (
       <div>
         <div className='flex-container-left-column mt15'>
-          <div style={{backgroundColor: 'lightblue'}}>
-            <div className='table-banner off-white'>
+          <div className='theme-dark-blue-background'>
+            <div className='table-banner off-white pl15 pr15'>
               <div className='heading-md mt15 center bold'>STATES</div>
             </div>
           </div>
@@ -31,13 +31,13 @@ class Table extends React.Component {
 
         <section>
 
-          <div className='flex-container-center-column column-underline full-width' style={{backgroundColor: 'lightblue'}}>
+          <div className='flex-container-center-column column-underline full-width off-white theme-dark-blue-background' style={{height: '49px'}}>
             <div className='heading-sm column-title'>
-              <div className='column-text'>Nebraska</div>
+              <div className='mt20'>Nebraska</div>
             </div>
           </div>
 
-          <div className='table-data base-font-xs' style={{backgroundColor: 'lightblue'}}>
+          <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
             <div className='flex-container-center-column pt15'>
               <div className='pb10'>{totalBookcases}</div>
               <div className='pb10'>{totalChairs}</div>
@@ -46,8 +46,12 @@ class Table extends React.Component {
             </div>
           </div>
 
-          <div>
-            <div className='p10 base-font-xs'>Grand Total = {totalFurniture}</div>
+          <div className='flex-container-left-row'>
+            <div className='theme-medium-gray-background column-container-outline'>
+              <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
+                <div className='column-subtotal-text full-width center bold'>{totalFurniture}</div>
+              </div>
+            </div>
           </div>
 
         </section>

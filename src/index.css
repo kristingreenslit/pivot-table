@@ -38,7 +38,8 @@ a:active { text-decoration: none }
   /* greens */
 
   /* grays */
-  .theme-light-gray-background { background-color: #f5f5f5; }
+  .theme-light-gray-background { background-color: #fbfbfb; }
+  .theme-medium-gray-background { background-color: #efefef; }
 
   /* reds */
 

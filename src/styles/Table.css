@@ -1,9 +1,19 @@
-.column-text {
-  margin-top: 12px;
+.column-container {
+  width: 170px;
+}
+
+.column-container-outline {
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+}
+
+.column-subtotal-text {
+  height: 30px;
+  padding-top: 8px;
 }
 
 .column-title {
-  height: 40px;
+  height: 45px;
 }
 
 .column-underline {
@@ -11,14 +21,5 @@
 }
 
 .table-banner {
-  height: 32px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.table-data {
-  /* height: 75px; */
-  padding-left: 15px;
-  padding-right: 15px;
-  width: 170px;
+  height: 26px;
 }

@@ -1,19 +1,18 @@
-.pivot-banner {
+.tray-banner {
   border-bottom: 3px solid black;
   height: 75px;
-  padding-left: 15px;
-  padding-right: 15px;
 }
 
-.pivot-banner-static {
+.tray-container {
   width: 300px;
 }
 
-.pivot-header {
-  padding-left: 15px;
-  padding-right: 15px;
+.tray-container-outline {
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
 
-.pivot-header-static {
-  width: 300px;
+.tray-subtotal-text {
+  height: 30px;
+  padding-top: 8px;
 }
