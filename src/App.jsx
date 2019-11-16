@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 
-import Table from './Table';
-import TableNav from './TableNav';
-import Tray from './Tray';
+import Table from './components/Table';
+import TableNav from './components/TableNav';
+import Tray from './components/Tray';
 
 class App extends React.Component {
   render() {

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Nebraska from './Nebraska';
-import './Table.css';
+import Nebraska from '../data/Nebraska';
+import '../styles/Table.css';
 
 class Table extends React.Component {
   render() {

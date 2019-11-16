@@ -1,5 +1,5 @@
 import React from 'react';
-import './Tray.css';
+import '../styles/Tray.css';
 
 class TrayComponent extends React.Component {
   render() {
