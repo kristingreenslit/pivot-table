@@ -4,27 +4,19 @@ import Nebraska from './Nebraska';
 
 class FurnitureComponent extends React.Component {
    render() {
+      const categoryFurnishings = Nebraska.filter((item) => { return item.subCategory === 'Furnishings'; });
+      const totalFurnishings = categoryFurnishings.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
 
-     // let totalBookCases = 0;
-     // let totalChairs = 0;
-     // let totalFurnishings = 0;
-     // let totalTables = 0;
+      const categoryChairs = Nebraska.filter((item) => { return item.subCategory === 'Chairs'; });
+      const totalChairs = categoryChairs.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
 
-     Nebraska.forEach(obj => {
-       if (obj.subCategory === 'Bookcases') {
-         this.totalBookcases += obj.sales;
-       } else if (obj.subCategory === 'Chairs') {
-         this.totalChairs += obj.sales;
-       } else if (obj.subCategory === 'Furnishings') {
-         console.log(obj.sales);
-         this.totalFurnishings += obj.sales;
-         // console.log(this.totalFurnishings);
-       } else if (obj.subCategory === 'Tables') {
-         this.totalTables += obj.sales;
-       }
-     });
+      const categoryBookcases = Nebraska.filter((item) => { return item.subCategory === 'Bookcases'; });
+      const totalBookcases = categoryBookcases.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
 
-     // console.log(this.totalFurnishings);
+      const categoryTables = Nebraska.filter((item) => { return item.subCategory === 'Tables'; });
+      const totalTables = categoryTables.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
+
+      const totalFurniture = totalFurnishings + totalChairs + totalBookcases + totalTables;
 
      return (
          <div className='page-container'>
@@ -54,7 +46,6 @@ class FurnitureComponent extends React.Component {
            </section>
 
            <section className='flex-container-left-row'>
-
              <div className='theme-light-gray-background'>
                <div className='flex-container-left-row pivot-header pivot-banner-static base-font-xs'>
                  <div className='mt15 bold'>Furniture</div>
@@ -66,20 +57,19 @@ class FurnitureComponent extends React.Component {
                  </div>
                </div>
              </div>
-
              <div className='theme-light-gray-background'>
                <div className='pivot-data base-font-xs mt15'>
                  <div className='flex-container-center-column'>
-                 <div className='pb10'>{this.totalBookcases || 0}</div>
-                 <div className='pb10'>{this.totalChairs || 0}</div>
-                 <div className='pb10'>{Nebraska[0].sales}</div>
-                 {/* <div className='pb10'>{this.totalFurnishings || 0}</div> */}
-                 <div className='pb10'>{this.totalTables || 0}</div>
+                 <div className='pb10'>{totalBookcases}</div>
+                 <div className='pb10'>{totalChairs}</div>
+                 <div className='pb10'>{totalFurnishings}</div>
+                 <div className='pb10'>{totalTables}</div>
                  </div>
                </div>
              </div>
-
            </section>
+
+           <div className='p10 base-font-xs'>Grand Total = {totalFurniture}</div>
 
          </div>
      );
