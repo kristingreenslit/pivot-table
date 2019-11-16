@@ -1,0 +1,13 @@
+.pivot-banner {
+  border-bottom: 3px solid black;
+  height: 75px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.pivot-data {
+  height: 75px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 170px;
+}
