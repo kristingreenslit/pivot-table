@@ -1,12 +1,23 @@
-.pivot-banner {
+.column-text {
+  margin-top: 12px;
+}
+
+.column-title {
+  height: 40px;
+}
+
+.column-underline {
   border-bottom: 3px solid black;
-  height: 75px;
+}
+
+.table-banner {
+  height: 32px;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.pivot-data {
-  height: 75px;
+.table-data {
+  /* height: 75px; */
   padding-left: 15px;
   padding-right: 15px;
   width: 170px;

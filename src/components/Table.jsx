@@ -20,29 +20,39 @@ class Table extends React.Component {
     const totalFurniture = totalFurnishings + totalChairs + totalBookcases + totalTables;
 
     return (
-      <section className='flex-container-left-column mt15'>
-        <div style={{backgroundColor: 'lightblue'}}>
-          <div className='pivot-banner off-white'>
-            <div className='heading-md mt15 center bold'>STATES</div>
-            <div className='flex-container-center-column mt10 ml20 mr20'>
-              <div className='heading-sm mt20'>States (placeholder)</div>
+      <div>
+        <div className='flex-container-left-column mt15'>
+          <div style={{backgroundColor: 'lightblue'}}>
+            <div className='table-banner off-white'>
+              <div className='heading-md mt15 center bold'>STATES</div>
             </div>
           </div>
         </div>
-        <div style={{backgroundColor: 'lightblue'}}>
-          <div className='pivot-data base-font-xs mt15'>
-            <div className='flex-container-center-column'>
-            <div className='pb10'>{totalBookcases}</div>
-            <div className='pb10'>{totalChairs}</div>
-            <div className='pb10'>{totalFurnishings}</div>
-            <div className='pb10'>{totalTables}</div>
+
+        <section>
+
+          <div className='flex-container-center-column column-underline full-width' style={{backgroundColor: 'lightblue'}}>
+            <div className='heading-sm column-title'>
+              <div className='column-text'>Nebraska</div>
             </div>
           </div>
-        </div>
-        <div>
-          <div className='p10 base-font-xs'>Grand Total = {totalFurniture}</div>
-        </div>
-      </section>
+
+          <div className='table-data base-font-xs' style={{backgroundColor: 'lightblue'}}>
+            <div className='flex-container-center-column pt15'>
+              <div className='pb10'>{totalBookcases}</div>
+              <div className='pb10'>{totalChairs}</div>
+              <div className='pb10'>{totalFurnishings}</div>
+              <div className='pb10'>{totalTables}</div>
+            </div>
+          </div>
+
+          <div>
+            <div className='p10 base-font-xs'>Grand Total = {totalFurniture}</div>
+          </div>
+
+        </section>
+
+      </div>
     );
   }
 }
