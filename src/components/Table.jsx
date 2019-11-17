@@ -5,21 +5,6 @@ import '../styles/Table.css';
 
 class Table extends React.Component {
 
-  testFn() {
-    let tempStates = [];
-
-    for (const individualState in americanStates) {
-      tempStates.push(individualState);
-    }
-
-    for (let i=0; i < tempStates.length; i++) {
-      let tempItem = tempStates[i];
-      console.log(tempItem);
-      let tempTotal = americanStates[tempItem].filter((item) => { return item.subCategory === 'Furnishings'; }).reduce((sum, item) => { return sum = sum + item.sales; }, 0);
-      return (<div>{tempTotal}</div>);
-    }
-  }
-
   render() {
     const categoryFurnishings = americanStates['District_of_Columbia'].filter((item) => { return item.subCategory === 'Furnishings'; });
     const totalFurnishings = categoryFurnishings.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
@@ -45,14 +30,17 @@ class Table extends React.Component {
       </div>
     ));
 
-    // const test = americanStates['Nebraska']
-    //   .filter((item) => item.subCategory === 'Furnishings')
-    //   .reduce((sum, item) => sum + item.sales, 0);
-    //
-    //   console.log(test);
+    let test = Object.keys(americanStates).map(function(keyName, keyIndex) {
+      return americanStates[keyName];
+    });
 
-    // .filter((item) => item.subCategory === 'Furnishings')
-    // .reduce((sum, item) => sum + item.sales, 0)
+    let totalFurnishings2 = [];
+
+    test.forEach(function (objArr) {
+      const categoryFurnishings = objArr.filter((item) => { return item.subCategory === 'Furnishings'; });
+      const totalFurnishings = categoryFurnishings.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
+      totalFurnishings2.push(totalFurnishings);
+    });
 
     let stateColumn = Object.keys(americanStates).map(key => (
       <div key={key}>
@@ -60,7 +48,7 @@ class Table extends React.Component {
          <div className='flex-container-center-column pt15'>
            <div className='pb10'>{totalBookcases}</div>
            <div className='pb10'>{totalChairs}</div>
-           <div className='pb10'>{totalFurnishings}</div>
+           <div className='pb10'>{totalFurnishings2}</div>
            <div className='pb10'>{totalTables}</div>
          </div>
         </div>
@@ -73,7 +61,6 @@ class Table extends React.Component {
         </div>
       </div>
     ));
-
 
     return (
       <div>
@@ -90,7 +77,6 @@ class Table extends React.Component {
         <div className='flex-container-left-row'>
           {stateColumn}
         </div>
-          {this.testFn()}
       </div>
     );
   }
