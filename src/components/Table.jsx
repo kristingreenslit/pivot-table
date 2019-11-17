@@ -4,28 +4,58 @@ import americanStates from '../data/americanStates';
 import '../styles/Table.css';
 
 class Table extends React.Component {
+
+  testFn() {
+    let tempStates = [];
+
+    for (const individualState in americanStates) {
+      tempStates.push(individualState);
+    }
+
+    for (let i=0; i < tempStates.length; i++) {
+      let tempItem = tempStates[i];
+      console.log(tempItem);
+      let tempTotal = americanStates[tempItem].filter((item) => { return item.subCategory === 'Furnishings'; }).reduce((sum, item) => { return sum = sum + item.sales; }, 0);
+      return (<div>{tempTotal}</div>);
+    }
+  }
+
   render() {
-    const categoryFurnishings = americanStates['Nebraska'].filter((item) => { return item.subCategory === 'Furnishings'; });
+    const categoryFurnishings = americanStates['District_of_Columbia'].filter((item) => { return item.subCategory === 'Furnishings'; });
     const totalFurnishings = categoryFurnishings.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
 
-    const categoryChairs = americanStates['Nebraska'].filter((item) => { return item.subCategory === 'Chairs'; });
+    const categoryChairs = americanStates['District_of_Columbia'].filter((item) => { return item.subCategory === 'Chairs'; });
     const totalChairs = categoryChairs.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
 
-    const categoryBookcases = americanStates['Nebraska'].filter((item) => { return item.subCategory === 'Bookcases'; });
+    const categoryBookcases = americanStates['District_of_Columbia'].filter((item) => { return item.subCategory === 'Bookcases'; });
     const totalBookcases = categoryBookcases.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
 
-    const categoryTables = americanStates['Nebraska'].filter((item) => { return item.subCategory === 'Tables'; });
+    const categoryTables = americanStates['District_of_Columbia'].filter((item) => { return item.subCategory === 'Tables'; });
     const totalTables = categoryTables.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
 
     const totalFurniture = totalFurnishings + totalChairs + totalBookcases + totalTables;
 
-    let stateColumn = Object.keys(americanStates).map(key => (
-      <section key={key}>
-        <div className='flex-container-center-column column-underline full-width off-white theme-dark-blue-background' style={{height: '49px'}}>
+    let stateTitle = Object.keys(americanStates).map(key => (
+      <div key={key}>
+        <div className='flex-container-center-column column-underline full-width off-white theme-dark-blue-background' style={{height: '49px', width: '170px'}}>
          <div className='heading-sm column-title mt20'>
            {key}
          </div>
         </div>
+      </div>
+    ));
+
+    // const test = americanStates['Nebraska']
+    //   .filter((item) => item.subCategory === 'Furnishings')
+    //   .reduce((sum, item) => sum + item.sales, 0);
+    //
+    //   console.log(test);
+
+    // .filter((item) => item.subCategory === 'Furnishings')
+    // .reduce((sum, item) => sum + item.sales, 0)
+
+    let stateColumn = Object.keys(americanStates).map(key => (
+      <div key={key}>
         <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
          <div className='flex-container-center-column pt15'>
            <div className='pb10'>{totalBookcases}</div>
@@ -41,8 +71,9 @@ class Table extends React.Component {
            </div>
          </div>
         </div>
-      </section>
+      </div>
     ));
+
 
     return (
       <div>
@@ -54,8 +85,12 @@ class Table extends React.Component {
           </div>
         </div>
         <div className='flex-container-left-row'>
+          {stateTitle}
+        </div>
+        <div className='flex-container-left-row'>
           {stateColumn}
         </div>
+          {this.testFn()}
       </div>
     );
   }
