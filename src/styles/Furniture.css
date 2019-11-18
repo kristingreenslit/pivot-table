@@ -18,6 +18,8 @@
 
 .column-underline {
   border-bottom: 3px solid black;
+  height: 49px;
+  width: 170px;
 }
 
 .table-banner {
