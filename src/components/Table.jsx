@@ -5,58 +5,70 @@ import '../styles/Table.css';
 
 class Table extends React.Component {
 
-  render() {
-    const categoryFurnishings = americanStates['District_of_Columbia'].filter((item) => { return item.subCategory === 'Furnishings'; });
-    const totalFurnishings = categoryFurnishings.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
+  getColumns() {
+    let tempArr = [];
 
-    const categoryChairs = americanStates['District_of_Columbia'].filter((item) => { return item.subCategory === 'Chairs'; });
-    const totalChairs = categoryChairs.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
+    for (var key in americanStates) {
+       var arr = americanStates[key];
 
-    const categoryBookcases = americanStates['District_of_Columbia'].filter((item) => { return item.subCategory === 'Bookcases'; });
-    const totalBookcases = categoryBookcases.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
+       let letsSeeTempObj = {
+         totalFurnishings: 0,
+         totalChairs: 0,
+         totalTables: 0,
+         totalBookcases: 0,
+         subtotal: 0
+       }
 
-    const categoryTables = americanStates['District_of_Columbia'].filter((item) => { return item.subCategory === 'Tables'; });
-    const totalTables = categoryTables.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
+       let letsSee = arr.filter((item) => { return item.subCategory === 'Furnishings'; });
+       let letsSee2 = letsSee.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
+       letsSeeTempObj.totalFurnishings = letsSee2;
 
-    const totalFurniture = totalFurnishings + totalChairs + totalBookcases + totalTables;
+       let letsSeeChairs = arr.filter((item) => { return item.subCategory === 'Chairs'; });
+       let letsSee2Chairs = letsSeeChairs.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
+       letsSeeTempObj.totalChairs = letsSee2Chairs;
 
-    let stateTitle = Object.keys(americanStates).map(key => (
-      <div key={key}>
-        <div className='flex-container-center-column column-underline full-width off-white theme-dark-blue-background' style={{height: '49px', width: '170px'}}>
-         <div className='heading-sm column-title mt20'>
-           {key}
-         </div>
-        </div>
-      </div>
-    ));
+       let letsSeeBookcases = arr.filter((item) => { return item.subCategory === 'Bookcases'; });
+       let letsSee2Bookcases = letsSeeBookcases.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
+       letsSeeTempObj.totalBookcases = letsSee2Bookcases;
 
-    let test = Object.keys(americanStates).map(function(keyName, keyIndex) {
-      return americanStates[keyName];
-    });
+       let letsSeeTables = arr.filter((item) => { return item.subCategory === 'Tables'; });
+       let letsSee2Tables = letsSeeTables.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
+       letsSeeTempObj.totalTables = letsSee2Tables;
 
-    let totalFurnishings2 = [];
+       letsSeeTempObj.subtotal = letsSee2 + letsSee2Chairs +letsSee2Bookcases + letsSee2Tables;
 
-    test.forEach(function (objArr) {
-      const categoryFurnishings = objArr.filter((item) => { return item.subCategory === 'Furnishings'; });
-      const totalFurnishings = categoryFurnishings.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
-      totalFurnishings2.push(totalFurnishings);
-    });
+       tempArr.push(letsSeeTempObj);
+    }
 
-    let stateColumn = Object.keys(americanStates).map(key => (
-      <div key={key}>
+    const stateColumn = tempArr.map(station =>
+      <div key={station.totalFurnishings}>
         <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
          <div className='flex-container-center-column pt15'>
-           <div className='pb10'>{totalBookcases}</div>
-           <div className='pb10'>{totalChairs}</div>
-           <div className='pb10'>{totalFurnishings2}</div>
-           <div className='pb10'>{totalTables}</div>
+           <div className='pb10'>{station.totalBookcases}</div>
+           <div className='pb10'>{station.totalChairs}</div>
+           <div className='pb10'>{station.totalFurnishings}</div>
+           <div className='pb10'>{station.totalTables}</div>
          </div>
         </div>
         <div className='flex-container-left-row'>
          <div className='theme-medium-gray-background column-container-outline'>
            <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
-             <div className='column-subtotal-text full-width center bold'>{totalFurniture}</div>
+             <div className='column-subtotal-text full-width center bold'>{station.subtotal}</div>
            </div>
+         </div>
+        </div>
+      </div>
+    );
+
+    return stateColumn;
+  }
+
+  render() {
+    let stateTitle = Object.keys(americanStates).map(key => (
+      <div key={key}>
+        <div className='flex-container-center-column column-underline full-width off-white theme-dark-blue-background' style={{height: '49px', width: '170px'}}>
+         <div className='heading-sm column-title mt20'>
+           {key}
          </div>
         </div>
       </div>
@@ -75,7 +87,7 @@ class Table extends React.Component {
           {stateTitle}
         </div>
         <div className='flex-container-left-row'>
-          {stateColumn}
+          {this.getColumns()}
         </div>
       </div>
     );
