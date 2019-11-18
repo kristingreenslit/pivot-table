@@ -3,7 +3,7 @@ import React from 'react';
 import americanStates from '../data/americanStates';
 import '../styles/Furniture.css';
 
-class Table extends React.Component {
+class Furniture extends React.Component {
 
   _getColumns() {
     let stateObjs = [];
@@ -94,4 +94,4 @@ class Table extends React.Component {
   }
 }
 
-export default Table;
+export default Furniture;
