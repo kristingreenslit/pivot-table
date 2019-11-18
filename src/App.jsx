@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 
-import Furniture from './components/Furniture';
+import TableColumn from './components/TableColumn';
 import TableNav from './components/TableNav';
-import Tray from './components/Tray';
+import TableTray from './components/TableTray';
 
 class App extends React.Component {
   render() {
@@ -11,8 +11,8 @@ class App extends React.Component {
       <div className='page-container'>
         <TableNav />
         <div className='flex-container-left-row'>
-          <Tray />
-          <Furniture />
+          <TableTray />
+          <TableColumn />
         </div>
       </div>
     );

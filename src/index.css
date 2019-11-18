@@ -40,6 +40,7 @@ a:active { text-decoration: none }
   /* grays */
   .theme-light-gray-background { background-color: #fbfbfb; }
   .theme-medium-gray-background { background-color: #efefef; }
+  .theme-charcoal-background { background-color: #333; }
 
   /* reds */
 
