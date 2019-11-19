@@ -1,8 +1,12 @@
 import React from 'react';
+
+import {SubCategories, Categories} from '../data/mockApiData';
 import '../styles/TableTray.css';
 
 class TableTrayComponent extends React.Component {
   render() {
+    console.log(SubCategories, Categories);
+
     return (
       <div>
         <section className='flex-container-left-row mt15'>
