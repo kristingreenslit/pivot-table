@@ -1,12 +1,40 @@
 import React from 'react';
 
-import {SubCategories, Categories} from '../data/mockApiData';
+import mockApiData from '../data/mockApiData';
 import '../styles/TableTray.css';
 
 class TableTrayComponent extends React.Component {
-  render() {
-    console.log(SubCategories, Categories);
 
+  _getTableTrayPanel() {
+    for (const key in mockApiData) {
+       let categoryObjs = mockApiData[key];
+
+       let tableTrayPanel = categoryObjs.map((obj) => {
+         return (<div key={obj['category']}>
+                  <div className='flex-container-left-row'>
+                    <div className='theme-light-gray-background'>
+                      <div className='flex-container-left-row pl15 pr15 tray-container base-font-xs'>
+                        <div className='mt15 bold'>{obj['category']}</div>
+                        <div className='flex-container-left-row-last-item mt15'>
+                          {obj['subCategories'].map((category) => {return <div key={category} className='pb10'>{category}</div>})}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='flex-container-left-row'>
+                    <div className='theme-medium-gray-background tray-container-outline'>
+                      <div className='flex-container-left-row pl15 pr15 tray-container base-font-xs'>
+                        <div className='tray-subtotal-text bold'>{obj['category']} Total</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>);
+        });
+      return tableTrayPanel;
+    }
+  }
+
+  render() {
     return (
       <div>
         <section className='flex-container-left-row mt15'>
@@ -20,70 +48,8 @@ class TableTrayComponent extends React.Component {
             </div>
           </div>
         </section>
-        <section className='flex-container-left-row'>
-          <div className='theme-light-gray-background'>
-            <div className='flex-container-left-row pl15 pr15 tray-container base-font-xs'>
-              <div className='mt15 bold'>Furniture</div>
-              <div className='flex-container-left-row-last-item mt15'>
-                <div className='pb10'>Bookcases</div>
-                <div className='pb10'>Chairs</div>
-                <div className='pb10'>Furnishings</div>
-                <div className='pb10'>Tables</div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className='flex-container-left-row'>
-          <div className='theme-medium-gray-background tray-container-outline'>
-            <div className='flex-container-left-row pl15 pr15 tray-container base-font-xs'>
-              <div className='tray-subtotal-text bold'>Furniture Total</div>
-            </div>
-          </div>
-        </section>
-        <section className='flex-container-left-row'>
-          <div className='theme-light-gray-background'>
-            <div className='flex-container-left-row pl15 pr15 tray-container base-font-xs'>
-              <div className='mt15 bold'>Office Supplies</div>
-              <div className='flex-container-left-row-last-item mt15'>
-                <div className='pb10'>Appliances</div>
-                <div className='pb10'>Art</div>
-                <div className='pb10'>Binders</div>
-                <div className='pb10'>Envelopes</div>
-                <div className='pb10'>Fasteners</div>
-                <div className='pb10'>Labels</div>
-                <div className='pb10'>Paper</div>
-                <div className='pb10'>Storage</div>
-                <div className='pb10'>Supplies</div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className='flex-container-left-row'>
-          <div className='theme-medium-gray-background tray-container-outline'>
-            <div className='flex-container-left-row pl15 pr15 tray-container base-font-xs'>
-              <div className='tray-subtotal-text bold'>Office Supplies Total</div>
-            </div>
-          </div>
-        </section>
-        <section className='flex-container-left-row'>
-          <div className='theme-light-gray-background'>
-            <div className='flex-container-left-row pl15 pr15 tray-container base-font-xs'>
-              <div className='mt15 bold'>Technology</div>
-              <div className='flex-container-left-row-last-item mt15'>
-                <div className='pb10'>Accessories</div>
-                <div className='pb10'>Copiers</div>
-                <div className='pb10'>Machines</div>
-                <div className='pb10'>Phones</div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className='flex-container-left-row'>
-          <div className='theme-medium-gray-background tray-container-outline'>
-            <div className='flex-container-left-row pl15 pr15 tray-container base-font-xs'>
-              <div className='tray-subtotal-text bold'>Technology Total</div>
-            </div>
-          </div>
+        <section>
+          {this._getTableTrayPanel()}
         </section>
         <section className='flex-container-left-row'>
           <div className='theme-charcoal-background'>
