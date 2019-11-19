@@ -12,7 +12,7 @@ class App extends React.Component {
         <TableNav />
         <div className='flex-container-left-row'>
           <TableTray />
-          <TableColumn />
+          <TableColumn/>
         </div>
       </div>
     );
