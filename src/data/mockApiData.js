@@ -1,5 +1,5 @@
 const mockApiData = {
-  "salesData": [
+  "salesGroups": [
     {
       "category": "Furniture",
       "subCategories": ["Bookcases", "Chairs", "Furnishings", "Tables"]
