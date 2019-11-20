@@ -1,5 +1,5 @@
 .column-container {
-  width: 170px;
+  width: 120px;
 }
 
 .column-container-outline {
@@ -10,16 +10,18 @@
 .column-subtotal-text {
   height: 30px;
   padding-top: 8px;
+  text-align: right;
 }
 
 .column-title {
   height: 45px;
+  white-space: nowrap;
 }
 
 .column-underline {
   border-bottom: 3px solid black;
   height: 49px;
-  width: 170px;
+  width: 120px;
 }
 
 .table-banner {

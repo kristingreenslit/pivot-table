@@ -69,6 +69,7 @@ a:active { text-decoration: none }
 .pull-left { float: left; }
 .pull-right { float: right; }
 .relative { position: relative; }
+.scroll-y {overflow-y: scroll; }
 .show { display: block; }
 .visible { visibility: visible; }
 
@@ -114,6 +115,12 @@ a:active { text-decoration: none }
 .flex-container-left-column {
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
+}
+
+.flex-container-right-column {
+  align-items: flex-end;
+  display: flex;
   flex-direction: column;
 }
 

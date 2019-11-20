@@ -14,8 +14,8 @@ class TableTrayComponent extends React.Component {
                   <div className='flex-container-left-row'>
                     <div className='theme-light-gray-background'>
                       <div className='flex-container-left-row pl15 pr15 tray-container base-font-xs'>
-                        <div className='mt15 bold'>{obj['category']}</div>
-                        <div className='flex-container-left-row-last-item mt15'>
+                        <div className='width-75 mt15 bold'>{obj['category']}</div>
+                        <div className='mt15'>
                           {obj['subCategories'].map((category) => {return <div key={category} className='pb10'>{category}</div>})}
                         </div>
                       </div>

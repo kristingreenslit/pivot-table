@@ -122,7 +122,7 @@ class TableColumn extends React.Component {
     const tableColumn = stateObjs.map(obj =>
       <div key={obj.totalFurnishings}>
         <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
-         <div className='flex-container-center-column pt15'>
+         <div className='flex-container-right-column pt15'>
            <div className='pb10'>{obj.totalBookcases}</div>
            <div className='pb10'>{obj.totalChairs}</div>
            <div className='pb10'>{obj.totalFurnishings}</div>
@@ -132,12 +132,12 @@ class TableColumn extends React.Component {
         <div className='flex-container-left-row'>
          <div className='theme-medium-gray-background column-container-outline'>
            <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
-             <div className='column-subtotal-text full-width center bold'>{obj.subtotalFurniture}</div>
+             <div className='column-subtotal-text full-width bold'>{obj.subtotalFurniture}</div>
            </div>
          </div>
         </div>
         <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
-         <div className='flex-container-center-column pt15'>
+         <div className='flex-container-right-column pt15'>
            <div className='pb10'>{obj.totalAppliances}</div>
            <div className='pb10'>{obj.totalArt}</div>
            <div className='pb10'>{obj.totalBinders}</div>
@@ -152,12 +152,12 @@ class TableColumn extends React.Component {
         <div className='flex-container-left-row'>
          <div className='theme-medium-gray-background column-container-outline'>
            <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
-             <div className='column-subtotal-text full-width center bold'>{obj.subtotalOfficeSupplies}</div>
+             <div className='column-subtotal-text full-width bold'>{obj.subtotalOfficeSupplies}</div>
            </div>
          </div>
         </div>
         <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
-         <div className='flex-container-center-column pt15'>
+         <div className='flex-container-right-column pt15'>
            <div className='pb10'>{obj.totalAccessories}</div>
            <div className='pb10'>{obj.totalCopiers}</div>
            <div className='pb10'>{obj.totalMachines}</div>
@@ -167,7 +167,7 @@ class TableColumn extends React.Component {
         <div className='flex-container-left-row'>
          <div className='theme-medium-gray-background column-container-outline'>
            <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
-             <div className='column-subtotal-text full-width center bold'>{obj.subtotalTechnology}</div>
+             <div className='column-subtotal-text full-width bold'>{obj.subtotalTechnology}</div>
            </div>
          </div>
         </div>
@@ -187,8 +187,8 @@ class TableColumn extends React.Component {
   render() {
     let stateTitle = Object.keys(americanStates).map(key => (
       <div key={key}>
-        <div className='flex-container-center-column column-underline full-width off-white theme-dark-blue-background'>
-         <div className='heading-sm column-title mt20'>
+        <div className='flex-container-right-column column-underline full-width off-white theme-dark-blue-background'>
+         <div className='heading-sm column-title mt20 pl15 pr15'>
            {key.split('_').join(' ')}
          </div>
         </div>
@@ -197,6 +197,7 @@ class TableColumn extends React.Component {
 
     return (
       <div>
+      {/* <div className='full-width scroll-y'> */}
         <div className='flex-container-left-column mt15'>
           <div className='theme-dark-blue-background'>
             <div className='table-banner off-white pl15 pr15'>
