@@ -11,64 +11,53 @@ class TableColumn extends React.Component {
 
     for (const key in americanStates) {
        let stateGroup = americanStates[key];
-
-       let tempObj = {
-         Bookcases: null,
-         Chairs: null,
-         Furnishings: null,
-         Tables: null,
-         Furniture: null,
-         Appliances: null,
-         Art: null,
-         Binders: null,
-         Envelopes: null,
-         Fasteners: null,
-         Labels: null,
-         Paper: null,
-         Storage: null,
-         Supplies: null,
-         OfficeSupplies: null,
-         Accessories: null,
-         Copiers: null,
-         Machines: null,
-         Phones: null,
-         Technology: null,
-         grandTotal: null
-       };
+       let tempObj = { grandTotal: null };
 
        for (const keyName in mockApiData) {
         let categoryObjs = mockApiData[keyName];
 
           categoryObjs.map((obj) => {
-            let tempCategory = (obj['category']);
+            // Iterate through mockApiData object
+            let tempCategory = obj['category'];
             let tempSubCategories = obj['subCategories'];
 
-            // Populate column object sums from americanStates
+            // Populate column object sums from americanStates (using variables from mockApiData)
             let tempCategoryMatch = stateGroup.filter((item) => { return item.category === tempCategory; });
             let sum = tempCategoryMatch.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
 
-            // Account for space in "Office Supplies"
+            // Account for character space in "Office Supplies"
             let categoryNoSpaces = tempCategory.split(' ').join('');
-            tempObj[categoryNoSpaces] = sum;
+
+            // Build nested object for tempObj
+            let objScaffold = { category: tempCategory,
+                                subTotal: sum,
+                                subcategories:
+                                [
+                                  tempSubCategories.map((tempSubcategory) => {
+                                    let tempSubCategoryVal = tempSubcategory;
+                                    let tempSubCategoryMatch = stateGroup.filter((item) => { return item.subCategory === tempSubCategoryVal; });
+                                    let tempSum = tempSubCategoryMatch.reduce((tempSum, item) => { return tempSum = tempSum + item.sales; }, 0);
+                                    return [tempSubcategory, tempSum];
+                                  })
+                                ]
+                              };
+
+            tempObj[categoryNoSpaces] = objScaffold;
 
             // Populate state totals in column object
             tempObj['grandTotal'] += sum;
 
-            // Loop through subCategories in mockApiData (Tables, Phones, etc.) and populate column object from americanStates
-            for (const keyVal in tempSubCategories) {
-              let tempSubCategoryVal = tempSubCategories[keyVal];
-              let tempSubCategoryMatch = stateGroup.filter((item) => { return item.subCategory === tempSubCategoryVal; });
-              let sum = tempSubCategoryMatch.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
-              tempObj[tempSubCategoryVal] = sum;
-            }
+            return tempObj;
           });
-        }
 
-       stateObjs.push(tempObj);
+        stateObjs.push(tempObj);
+      }
     }
 
+    console.log(stateObjs);
+
     const tableColumn = stateObjs.map(obj =>
-      <div key={obj.Furnishings}>
+      <div key={obj.grandTotal}>
         <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
          <div className='flex-container-right-column pt15'>
            <div className='pb10'>{Math.round(obj.Bookcases).toLocaleString()}</div>
@@ -80,7 +69,7 @@ class TableColumn extends React.Component {
         <div className='flex-container-left-row'>
          <div className='theme-medium-gray-background column-container-outline'>
            <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
-             <div className='column-subtotal-text full-width bold'>{Math.round(obj.Furniture).toLocaleString()}</div>
+             <div className='column-subtotal-text full-width bold'>{Math.round(obj.Furniture.total).toLocaleString()}</div>
            </div>
          </div>
         </div>
@@ -100,7 +89,7 @@ class TableColumn extends React.Component {
         <div className='flex-container-left-row'>
          <div className='theme-medium-gray-background column-container-outline'>
            <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
-             <div className='column-subtotal-text full-width bold'>{Math.round(obj.OfficeSupplies).toLocaleString()}</div>
+             <div className='column-subtotal-text full-width bold'>{Math.round(obj.OfficeSupplies.total).toLocaleString()}</div>
            </div>
          </div>
         </div>
@@ -115,7 +104,7 @@ class TableColumn extends React.Component {
         <div className='flex-container-left-row'>
          <div className='theme-medium-gray-background column-container-outline'>
            <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
-             <div className='column-subtotal-text full-width bold'>{Math.round(obj.Technology).toLocaleString()}</div>
+             <div className='column-subtotal-text full-width bold'>{Math.round(obj.Technology.total).toLocaleString()}</div>
            </div>
          </div>
         </div>
@@ -145,7 +134,6 @@ class TableColumn extends React.Component {
 
     return (
       <div>
-      {/* <div className='full-width scroll-y'> */}
         <div className='flex-container-left-column mt15'>
           <div className='theme-dark-blue-background'>
             <div className='table-banner off-white pl15 pr15'>
