@@ -16,7 +16,7 @@ class TableColumn extends React.Component {
        for (const keyName in mockApiData) {
         let categoryObjs = mockApiData[keyName];
 
-          categoryObjs.map((obj) => {
+          categoryObjs.map((obj, index) => {
             // Iterate through mockApiData object
             let tempCategory = obj['category'];
             let tempSubCategories = obj['subCategories'];
@@ -24,9 +24,6 @@ class TableColumn extends React.Component {
             // Populate column object sums from americanStates (using variables from mockApiData)
             let tempCategoryMatch = stateGroup.filter((item) => { return item.category === tempCategory; });
             let sum = tempCategoryMatch.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
-
-            // Account for character space in "Office Supplies"
-            let categoryNoSpaces = tempCategory.split(' ').join('');
 
             // Build nested object for tempObj
             let objScaffold = { category: tempCategory,
@@ -42,81 +39,93 @@ class TableColumn extends React.Component {
                                 ]
                               };
 
-            tempObj[categoryNoSpaces] = objScaffold;
-
             // Populate state totals in column object
             tempObj['grandTotal'] += sum;
 
+            // Assign index to nest each scaffolding object
+            tempObj[index] = objScaffold;
+
             return tempObj;
           });
-
+        // Push tempObj into an array that contains an object for each American state
         stateObjs.push(tempObj);
       }
     }
 
-    console.log(stateObjs);
 
-    const tableColumn = stateObjs.map(obj =>
-      <div key={obj.grandTotal}>
-        <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
-         <div className='flex-container-right-column pt15'>
-           <div className='pb10'>{Math.round(obj.Bookcases).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Chairs).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Furnishings).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Tables).toLocaleString()}</div>
-         </div>
-        </div>
-        <div className='flex-container-left-row'>
-         <div className='theme-medium-gray-background column-container-outline'>
-           <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
-             <div className='column-subtotal-text full-width bold'>{Math.round(obj.Furniture.total).toLocaleString()}</div>
-           </div>
-         </div>
-        </div>
-        <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
-         <div className='flex-container-right-column pt15'>
-           <div className='pb10'>{Math.round(obj.Appliances).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Art).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Binders).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Envelopes).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Fasteners).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Labels).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Paper).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Storage).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Supplies).toLocaleString()}</div>
-         </div>
-        </div>
-        <div className='flex-container-left-row'>
-         <div className='theme-medium-gray-background column-container-outline'>
-           <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
-             <div className='column-subtotal-text full-width bold'>{Math.round(obj.OfficeSupplies.total).toLocaleString()}</div>
-           </div>
-         </div>
-        </div>
-        <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
-         <div className='flex-container-right-column pt15'>
-           <div className='pb10'>{Math.round(obj.Accessories).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Copiers).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Machines).toLocaleString()}</div>
-           <div className='pb10'>{Math.round(obj.Phones).toLocaleString()}</div>
-         </div>
-        </div>
-        <div className='flex-container-left-row'>
-         <div className='theme-medium-gray-background column-container-outline'>
-           <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
-             <div className='column-subtotal-text full-width bold'>{Math.round(obj.Technology.total).toLocaleString()}</div>
-           </div>
-         </div>
-        </div>
-        <div className='flex-container-left-row'>
-          <div className='theme-charcoal-background'>
-            <div className='flex-container-left-row pl15 pr15 column-container base-font-xs off-white'>
-              <div className='column-subtotal-text full-width center bold'>{Math.round(obj.grandTotal).toLocaleString()}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    let tableColumn = stateObjs.map((stateObj) => {
+      let singleStateObj = stateObj;
+      let singleStateGrandTotal = singleStateObj['grandTotal'];
+
+      let singleStateZero = singleStateObj['0'];
+      let singleStateZeroItems = singleStateObj['0']['subcategories'];
+
+      let singleStateOne = singleStateObj['1'];
+      let singleStateOneItems = singleStateObj['1']['subcategories'];
+
+      let singleStateTwo = singleStateObj['2'];
+      let singleStateTwoItems = singleStateObj['2']['subcategories'];
+
+      return  <div key={singleStateGrandTotal}>
+                <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
+                   <div className='flex-container-right-column pt15'>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[0][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => { let tempItem = item[1][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => { let tempItem = item[2][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => { let tempItem = item[3][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                   </div>
+                </div>
+                <div className='flex-container-left-row'>
+                 <div className='theme-medium-gray-background column-container-outline'>
+                   <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
+                     <div className='column-subtotal-text full-width bold'>{Math.round(singleStateZero['subTotal']).toLocaleString()}</div>
+                   </div>
+                 </div>
+                </div>
+                <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
+                   <div className='flex-container-right-column pt15'>
+                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[0][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[1][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[2][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[3][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[4][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[5][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[6][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[7][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[8][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                   </div>
+                </div>
+                <div className='flex-container-left-row'>
+                 <div className='theme-medium-gray-background column-container-outline'>
+                   <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
+                     <div className='column-subtotal-text full-width bold'>{Math.round(singleStateOne['subTotal']).toLocaleString()}</div>
+                   </div>
+                 </div>
+                </div>
+                <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
+                   <div className='flex-container-right-column pt15'>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => { let tempItem = item[0][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => { let tempItem = item[1][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => { let tempItem = item[2][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => { let tempItem = item[3][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                   </div>
+                </div>
+                <div className='flex-container-left-row'>
+                 <div className='theme-medium-gray-background column-container-outline'>
+                   <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
+                     <div className='column-subtotal-text full-width bold'>{Math.round(singleStateTwo['subTotal']).toLocaleString()}</div>
+                   </div>
+                 </div>
+                </div>
+                <div className='flex-container-left-row'>
+                  <div className='theme-charcoal-background'>
+                    <div className='flex-container-left-row pl15 pr15 column-container base-font-xs off-white'>
+                      <div className='column-subtotal-text full-width center bold'>{Math.round(singleStateGrandTotal).toLocaleString()}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>;
+     });
 
     return tableColumn;
   }
