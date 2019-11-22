@@ -52,7 +52,6 @@ class TableColumn extends React.Component {
       }
     }
 
-
     let tableColumn = stateObjs.map((stateObj) => {
       let singleStateObj = stateObj;
       let singleStateGrandTotal = singleStateObj['grandTotal'];
@@ -70,9 +69,9 @@ class TableColumn extends React.Component {
                 <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
                    <div className='flex-container-right-column pt15'>
                      <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[0][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateZeroItems.map((item) => { let tempItem = item[1][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateZeroItems.map((item) => { let tempItem = item[2][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateZeroItems.map((item) => { let tempItem = item[3][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[1][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[2][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[3][1]; return Math.round(tempItem).toLocaleString()})}</div>
                    </div>
                 </div>
                 <div className='flex-container-left-row'>
@@ -84,15 +83,15 @@ class TableColumn extends React.Component {
                 </div>
                 <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
                    <div className='flex-container-right-column pt15'>
-                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[0][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[1][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[2][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[3][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[4][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[5][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[6][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[7][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => { let tempItem = item[8][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[0][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[1][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[2][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[3][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[4][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[5][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[6][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[7][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[8][1]; return Math.round(tempItem).toLocaleString()})}</div>
                    </div>
                 </div>
                 <div className='flex-container-left-row'>
@@ -104,10 +103,10 @@ class TableColumn extends React.Component {
                 </div>
                 <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
                    <div className='flex-container-right-column pt15'>
-                     <div className='pb10'>{singleStateTwoItems.map((item) => { let tempItem = item[0][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateTwoItems.map((item) => { let tempItem = item[1][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateTwoItems.map((item) => { let tempItem = item[2][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateTwoItems.map((item) => { let tempItem = item[3][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[0][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[1][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[2][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[3][1]; return Math.round(tempItem).toLocaleString()})}</div>
                    </div>
                 </div>
                 <div className='flex-container-left-row'>
@@ -142,16 +141,16 @@ class TableColumn extends React.Component {
     ));
 
     return (
-      <div>
-        <div className='flex-container-left-column mt15'>
+      <div className='table-container'>
+        <div className='flex-container-left-column mt15 theme-dark-blue-background' style={{display: 'inline-block'}}>
           <div className='theme-dark-blue-background'>
             <div className='table-banner off-white pl15 pr15'>
               <div className='heading-md mt15 center bold'>STATES</div>
             </div>
           </div>
-        </div>
-        <div className='flex-container-left-row'>
-          {stateTitle}
+          <div className='flex-container-left-row theme-dark-blue-background'>
+            {stateTitle}
+          </div>
         </div>
         <div className='flex-container-left-row'>
           {this._getTableColumn()}

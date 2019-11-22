@@ -27,3 +27,8 @@
 .table-banner {
   height: 26px;
 }
+
+.table-container {
+  overflow-y: scroll;
+  width: 100%;
+}
