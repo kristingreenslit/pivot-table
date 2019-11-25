@@ -1,5 +1,3 @@
-This project was bootstrapped with
-
 ### Overview
 
 The purpose of this challenge was to create a mockup of office supply sales data in a pivot table format using the [Create React App](https://github.com/facebook/create-react-app).
@@ -25,10 +23,13 @@ Given the code challenge was a non-production ready proof of concept, and exists
 
 1. The sample data set contained too much data for one API call to populate the entire table in a production scenario, and the data needed to be refactored to create easier groupings for rendering data by geographical state in the browser. In the absence of a database or back end that could process some of the data before an API call was made, a smaller sample set was created based on the original data set and was regrouped to eliminate this problem.
 2. Browser support included Chrome, Safari and Firefox (but not Internet Explorer or Edge)
-3. The site was optimized for desktop vs. mobile browsers
+3. The mockup was optimized for desktop vs. mobile browsers
 4. There were no considerations in the code to align with W3C accessibility standards other than what is included natively with the Create React App
 5. There were no company branding guidelines to follow regarding use of colors, fonts, logos, etc.
-6. Mock data was provided that didn't present security issues (such as restricting access to content due to a user's permission level or by country in which the code reviewer accessed said data)
+6. Mock data was provided that didn't present security issues (such as restricting access to content based on a user's permission level or by country in which the code reviewer accessed the data)
+
+### Architecture
+
 
 ### Next steps
 1. Create a menu of controls in the UI to filter and manipulate data (similar to a pivot table menu in Excel)
