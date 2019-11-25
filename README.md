@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with
 
-## Available Scripts
+### Overview
 
-In the project directory, you can run:
+The purpose of this challenge was to create a mockup of office supply sales data in a pivot table format using the [Create React App](https://github.com/facebook/create-react-app).
 
-### `npm start`
+### Installation
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1.  Check that Node and NPM are installed. Run `node -v` and then `npm -v` from the command line (Windows) or Terminal app (Mac). If a version number does not print to the console, follow [Mac](http://blog.teamtreehouse.com/install-node-js-npm-mac) or [Windows](http://blog.teamtreehouse.com/install-node-js-npm-windows) installation instructions.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+2.  Clone the repository, install dependencies, then start the development server (from the command line or Terminal app). For those not familiar with Git, download the ZIP file (instead of cloning the repository) and skip the first line in the instruction block below:
 
-### `npm test`
+  ```
+    > git clone git@github.com:kristingreenslit/pivot-table.git
+    > cd pivot-table
+    > npm install
+    > npm start
+  ```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3.  Visit http://localhost:3000 to view the app in your browser of choice. Note: Running `npm start` and entering the keyboard shortcut `CTRL + C` from the project's root directory will start and stop the server.
 
-### `npm run build`
+### Approach
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Given the code challenge was a non-production ready proof of concept, and exists solely for the purpose of demonstrating a web developer's knowledge and coding capability, the following assumptions were made about the deliverable:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. The sample data set contained too much data for one API call to populate the entire table in a production scenario, and the data needed to be refactored to create easier groupings for rendering data by geographical state in the browser. In the absence of a database or back end that could process some of the data before an API call was made, a smaller sample set was created based on the original data set and was regrouped to eliminate this problem.
+2. Browser support included Chrome, Safari and Firefox (but not Internet Explorer or Edge)
+3. The site was optimized for desktop vs. mobile browsers
+4. There were no considerations in the code to align with W3C accessibility standards other than what is included natively with the Create React App
+5. There were no company branding guidelines to follow regarding use of colors, fonts, logos, etc.
+6. Mock data was provided that didn't present security issues (such as restricting access to content due to a user's permission level or by country in which the code reviewer accessed said data)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Next steps
+1. Create a menu of controls in the UI to filter and manipulate data (similar to a pivot table menu in Excel)
+2. Incorporate Redux to control the flow of data when the user prompts different choices in the filter menu
