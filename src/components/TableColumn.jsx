@@ -141,20 +141,23 @@ class TableColumn extends React.Component {
     ));
 
     return (
-      <div className='table-container'>
-        <div className='flex-container-left-column mt15 theme-dark-blue-background' style={{display: 'inline-block'}}>
+      <div className='table-wrapper'>
+        <div className='flex-container-left-column mt15 theme-dark-blue-background full-width'>
           <div className='theme-dark-blue-background'>
             <div className='table-banner off-white pl15 pr15'>
               <div className='heading-md mt15 center bold'>STATES</div>
             </div>
           </div>
+        </div>
+        <div className='table-container'>
           <div className='flex-container-left-row theme-dark-blue-background'>
             {stateTitle}
           </div>
+          <div className='flex-container-left-row'>
+            {this._getTableColumn()}
+          </div>
         </div>
-        <div className='flex-container-left-row'>
-          {this._getTableColumn()}
-        </div>
+        <div className='italic base-font-xs medium-gray right mt5 mr3'>Scroll to view additional states</div>
       </div>
     );
   }

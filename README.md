@@ -19,14 +19,14 @@ The purpose of this challenge was to create a mockup of office supply sales data
 
 ### Approach
 
-Given the code challenge was a non-production ready proof of concept, and exists solely for the purpose of demonstrating a web developer's knowledge and coding capability, the following assumptions were made about the deliverable:
+Given the code challenge was a non-production ready proof of concept, and exists solely for the purpose of demonstrating a web developer's knowledge and capability to render large sets of data in reusable components, the following assumptions were made about the deliverable:
 
-1. The sample data set contained too much data for one API call to populate the entire table in a production scenario, and the data needed to be refactored to create easier groupings for rendering data by geographical state in the browser. In the absence of a database or back end that could process some of the data before an API call was made, a smaller sample set was created based on the original data set and was regrouped to eliminate this problem.
-2. Browser support included Chrome, Safari and Firefox (but not Internet Explorer or Edge)
-3. The mockup was optimized for desktop vs. mobile browsers
-4. There were no considerations in the code to align with W3C accessibility standards other than what is included natively with the Create React App
-5. There were no company branding guidelines to follow regarding use of colors, fonts, logos, etc.
-6. Mock data was provided that didn't present security issues (such as restricting access to content based on a user's permission level or by country in which the code reviewer accessed the data)
+1. The sample data set contained too much data for one API call to populate the entire table in a production scenario, and the data needed to be refactored to create easier groupings for rendering data by geographical state in the browser. In the absence of a database or back end that could process some of the data before an API call was made, a smaller sample set was created based on the original data set and was regrouped to eliminate the problem.
+2. Browser support includes Chrome, Safari and Firefox (but not Internet Explorer or Edge)
+3. The mockup is optimized for desktop vs. mobile browsers
+4. There was not a consideration in the code to align with W3C accessibility standards other than what is included natively in the Create React App
+5. There are no company branding guidelines to follow regarding use of colors, fonts, logos, etc.
+6. The mock data was provided didn't present security issues (such as restricting access to content based on a user's permission level or by country in which the code reviewer accessed the data)
 
 ### Architecture
 

@@ -32,3 +32,7 @@
   overflow-y: scroll;
   width: 100%;
 }
+
+.table-wrapper {
+  width: 760px;
+}
