@@ -18,7 +18,7 @@ The purpose of this challenge was to create a mockup of office supply sales data
 
 ### Architecture
 
-Major components are outlined with different border colors in the image below. Each state (Delaware, Maine, etc.) is an individual object and was rendered as its own column within its component.
+Major components are outlined with different border colors in the image below. Each state (Delaware, Maine, etc.) is an object and was rendered as an individual column within its component.
 
 <p align='center'>
   <img src='./public/components.png' width='750' height='500' />
@@ -28,15 +28,15 @@ Major components are outlined with different border colors in the image below. E
 
 Given the code challenge was a non-production ready proof of concept, the following simplifications were made:
 
-1. The sample data set contained too much data for one API call to populate the entire table in a production scenario. In the absence of a controlled data flow, or a middleware/back end addition that could process some of the data before sending it to the front end, a smaller sample set was created based on the original data set (about 15,000 lines vs. 113,000 lines).
+1. The sample data set contained too much data for one API call to populate the entire table in a production scenario. In the absence of a controlled flow of data, or a middleware/back end solution that could process some of the data before sending it to the front end, a smaller sample set was created based on the original data set (about 15,000 lines vs. 113,000 lines).
 2. The data needed to be refactored to create easier groupings for rendering data by geographical state in the browser. Select states were chosen and data was manually regrouped.
 
 Additional considerations if the app was intended for production:
 
 1. Optimize page layout for both desktop and mobile browsers
-2. Better align code with W3C accessibility standards
+2. Better align code with [W3C accessibility standards](https://www.w3.org/standards/webdesign/accessibility)
 3. Follow company branding guidelines regarding use of colors, fonts, logos, etc.
-4. Partner with DevOps and/or security specialists to pinpoint any security issues or vulnerabilities (such as restricting access to content based on a user's permission level or by country in which the data is accessed)
+4. Partner with DevOps and/or security specialists to pinpoint any security issues or vulnerabilities (such as restricting access to content based on a user's permission level, or by country in which the data is accessed, etc.)
 
 ### Next steps
 1. Create a menu of controls in the UI to filter and manipulate data (similar to a pivot table menu in Excel)

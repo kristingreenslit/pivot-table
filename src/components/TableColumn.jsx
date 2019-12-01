@@ -149,7 +149,7 @@ class TableColumn extends React.Component {
             </div>
           </div>
         </div>
-        <div className='table-container'>
+        <div className='table-container theme-dark-blue-background'>
           <div className='flex-container-left-row theme-dark-blue-background'>
             {stateTitle}
           </div>
