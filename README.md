@@ -30,6 +30,9 @@ Given the code challenge was a non-production ready proof of concept, and exists
 
 ### Architecture
 
+<p align='center'>
+  <img src='./public/components.png' width='750' height='500' />
+</p>
 
 ### Next steps
 1. Create a menu of controls in the UI to filter and manipulate data (similar to a pivot table menu in Excel)
