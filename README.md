@@ -14,6 +14,8 @@ The purpose of this challenge was to create a mockup of office supply sales data
     > npm start
   ```
 
+_Access to the private Github repository used for this challenge is available upon request_
+
 3.  Visit http://localhost:3000 to view the app in your browser of choice. This app was optimized for Chrome, Safari and Firefox only. Note: Running `npm start` and entering the keyboard shortcut `CTRL + C` from the project's root directory will start and stop the server.
 
 ### Architecture
@@ -26,10 +28,11 @@ Major components are outlined with different border colors in the image below. E
 
 ### Approach
 
-Given the code challenge was a non-production ready proof of concept, the following simplifications were made:
+Given the code challenge was a non-production-ready proof of concept, the following simplifications were made:
 
-1. The sample data set contained too much data for one API call to populate the entire table in a production scenario. In the absence of a controlled flow of data, or a middleware/back end solution that could process some of the data before sending it to the front end, a smaller sample set was created based on the original data set (about 15,000 lines vs. 113,000 lines).
-2. The data needed to be refactored to create easier groupings for rendering data by geographical state in the browser. Select states were chosen and data was manually regrouped.
+1. The sample data set contained too much data for one API call to populate the entire table at once in a production environment. In the absence of a controlled flow of data, or a middleware/back end solution that could process some of the data before sending it to the front end, a smaller sample set was created based on the original data set (about 15,000 lines vs. 113,000 lines). An additional data file was also created to emulate an API call and get high level category/subcategory groupings.
+
+2. The data needed to be refactored to create easier groupings for rendering data by geographical state in the browser. Select states were chosen and data was manually regrouped. Not all geographical states were refactored because doing so wouldn't have been a wise use of time in solving this code challenge.
 
 Additional considerations if the app was intended for production:
 
@@ -41,4 +44,4 @@ Additional considerations if the app was intended for production:
 ### Next steps
 1. Create a menu of controls in the UI to filter and manipulate data (similar to a pivot table menu in Excel)
 2. Incorporate Redux to control the flow of data when filter selection changes are prompted by the user
-3. Refactor code for scalability
+3. Refactor code for scalability and add TypeScript

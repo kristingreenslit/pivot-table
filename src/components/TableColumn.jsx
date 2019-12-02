@@ -157,7 +157,7 @@ class TableColumn extends React.Component {
             {this._getTableColumn()}
           </div>
         </div>
-        <div className='italic base-font-xs medium-gray right mt5 mr3'>Scroll to view additional states</div>
+        <div className='italic base-font-xs medium-gray right mt5 mr3'>Please see README for more information on the state data represented above. Scroll horizontally to view additional states.</div>
       </div>
     );
   }
