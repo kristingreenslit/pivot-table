@@ -34,6 +34,8 @@ Given the code challenge was a non-production-ready proof of concept, the follow
 
 2. The data needed to be refactored to create easier groupings for rendering data by geographical state in the browser. Select states were chosen and data was manually regrouped. Not all geographical states were refactored because doing so wouldn't have been a wise use of time in solving this code challenge.
 
+3. The sale prices in the sample JSON did not consistently have 2 numbers after the decimal point (and sometimes there were three). This inconsistency coupled with JavaScript's rounding methods caused subtotals and grand totals to be too low or too high when displaying whole numbers in the UI (which would match the provided wireframe). The two solutions were (1) manually update every JSON object with two decimals for consistency (which might not be favorable in a real-life scenario) or (2) display sale prices with three decimal points to the user. I chose the latter since it was more pertinent in this coding challenge to prove the addition was correct.
+
 Additional considerations if the app was intended for production:
 
 1. Optimize page layout for both desktop and mobile browsers

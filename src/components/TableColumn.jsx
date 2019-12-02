@@ -68,58 +68,58 @@ class TableColumn extends React.Component {
       return  <div key={singleStateGrandTotal}>
                 <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
                    <div className='flex-container-right-column pt15'>
-                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[0][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[1][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[2][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[3][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[0][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[1][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[2][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[3][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
                    </div>
                 </div>
                 <div className='flex-container-left-row'>
                  <div className='theme-medium-gray-background column-container-outline'>
                    <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
-                     <div className='column-subtotal-text full-width bold'>{Math.round(singleStateZero['subTotal']).toLocaleString()}</div>
+                     <div className='column-subtotal-text full-width bold'>{singleStateZero['subTotal'].toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
                    </div>
                  </div>
                 </div>
                 <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
                    <div className='flex-container-right-column pt15'>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[0][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[1][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[2][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[3][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[4][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[5][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[6][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[7][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[8][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[0][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[1][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[2][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[3][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[4][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[5][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[6][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[7][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[8][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
                    </div>
                 </div>
                 <div className='flex-container-left-row'>
                  <div className='theme-medium-gray-background column-container-outline'>
                    <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
-                     <div className='column-subtotal-text full-width bold'>{Math.round(singleStateOne['subTotal']).toLocaleString()}</div>
+                     <div className='column-subtotal-text full-width bold'>{singleStateOne['subTotal'].toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
                    </div>
                  </div>
                 </div>
                 <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
                    <div className='flex-container-right-column pt15'>
-                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[0][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[1][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[2][1]; return Math.round(tempItem).toLocaleString()})}</div>
-                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[3][1]; return Math.round(tempItem).toLocaleString()})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[0][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[1][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[2][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[3][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
                    </div>
                 </div>
                 <div className='flex-container-left-row'>
                  <div className='theme-medium-gray-background column-container-outline'>
                    <div className='flex-container-left-row pl15 pr15 column-container base-font-xs'>
-                     <div className='column-subtotal-text full-width bold'>{Math.round(singleStateTwo['subTotal']).toLocaleString()}</div>
+                     <div className='column-subtotal-text full-width bold'>{singleStateTwo['subTotal'].toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
                    </div>
                  </div>
                 </div>
                 <div className='flex-container-left-row'>
                   <div className='theme-charcoal-background'>
                     <div className='flex-container-left-row pl15 pr15 column-container base-font-xs off-white'>
-                      <div className='column-subtotal-text full-width center bold'>{Math.round(singleStateGrandTotal).toLocaleString()}</div>
+                      <div className='column-subtotal-text full-width center bold'>{singleStateGrandTotal.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
                     </div>
                   </div>
                 </div>
@@ -157,7 +157,7 @@ class TableColumn extends React.Component {
             {this._getTableColumn()}
           </div>
         </div>
-        <div className='italic base-font-xs medium-gray right mt5 mr3'>Please see README for more information on the state data represented above. Scroll horizontally to view additional states.</div>
+        <div className='italic base-font-xs medium-gray right mt5 mr3'>Please see README for more information on the state data represented above</div>
       </div>
     );
   }
