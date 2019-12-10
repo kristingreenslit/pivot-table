@@ -16,7 +16,7 @@ The purpose of this challenge was to create a mockup of office supply sales data
 
 _Access to the private Github repository used for this challenge is available upon request_
 
-3.  Visit http://localhost:3000 to view the app in your browser of choice. This app was optimized for Chrome, Safari and Firefox only. Note: Running `npm start` and entering the keyboard shortcut `CTRL + C` from the project's root directory will start and stop the server.
+3.  Follow terminal instructions the view the app locally in your browser of choice (the message "Compiled successfully!" should appear along with instructions to view the app at http://localhost:3000). This app was optimized for Chrome, Safari and Firefox only. Note: Running `npm start` and entering the keyboard shortcut `CTRL + C` from the project's root directory will start and stop the server.
 
 ### Architecture
 
