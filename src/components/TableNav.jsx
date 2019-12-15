@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/TableNav.css';
 
 class TableNavComponent extends React.Component {
   render() {

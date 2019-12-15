@@ -30,7 +30,7 @@ Major components are outlined with different border colors in the image below. E
 
 Given the code challenge was a non-production-ready proof of concept, the following simplifications were made:
 
-1. The sample data set contained too much data for one API call to populate the entire table at once in a production environment. In the absence of a controlled flow of data, or a middleware/back end solution that could process some of the data before sending it to the front end, a smaller sample set was created based on the original data set (about 15,000 lines vs. 113,000 lines of code). An additional data file was also created to emulate an API call and get high level category/subcategory groupings.
+1. The sample data set contained a heavy amount of data for one API call to instantly populate the entire table in a production environment. In the absence of a controlled flow of data, or a middleware/back end solution that could process some of the data before sending it to the front end, a smaller sample set was created based on the original data set (about 15,000 lines vs. 113,000 lines of code). An additional data file was also created to emulate an API call and get high level category/subcategory groupings.
 
 2. The data needed to be refactored to create easier groupings for rendering data by geographical state in the browser. Select states were chosen and data was manually regrouped. Not all geographical states were refactored because the cost of time spent wouldn't have outweighed the benefit in solving this code challenge.
 
