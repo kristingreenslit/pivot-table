@@ -6,15 +6,13 @@ The purpose of this challenge was to create a mockup of office supply sales data
 
 1.  Check that Node and NPM are installed. Run `node -v` and then `npm -v` from the command line (Windows) or Terminal app (Mac). If a version number does not print to the console, follow [Mac](http://blog.teamtreehouse.com/install-node-js-npm-mac) or [Windows](http://blog.teamtreehouse.com/install-node-js-npm-windows) installation instructions.
 
-2.  Open the ZIP file, install dependencies, then navigate to the project's root directory to start the development server (from the command line or Terminal app). Commands are as follows:
+2.  Clone the repository, install dependencies, then start the development server (from the command line or Terminal app). For those not familiar with Git, download the ZIP file (instead of cloning the repository) and skip the first line in the instruction block below. Commands are as follows:
 
   ```
     > cd pivot-table
     > npm install
     > npm start
   ```
-
-_Access to the private Github repository used for this challenge is available upon request_
 
 3.  Follow terminal instructions the view the app locally in your browser of choice (the message "Compiled successfully!" should appear along with instructions to view the app at http://localhost:3000). This app was optimized for Chrome, Safari and Firefox only. Note: Running `npm start` and entering the keyboard shortcut `CTRL + C` from the project's root directory will start and stop the server.
 
