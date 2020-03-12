@@ -7,33 +7,33 @@ import '../styles/TableColumn.css';
 class TableColumn extends React.Component {
 
   _getTableColumn() {
-    let stateObjs = [];
+    const stateObjs = [];
 
     for (const key in americanStates) {
-       let stateGroup = americanStates[key];
-       let tempObj = { grandTotal: null };
+       const stateGroup = americanStates[key];
+       const tempObj = { grandTotal: null };
 
        for (const keyName in mockApiData) {
-        let categoryObjs = mockApiData[keyName];
+        const categoryObjs = mockApiData[keyName];
 
           categoryObjs.map((obj, index) => {
             // Iterate through mockApiData object
-            let tempCategory = obj['category'];
-            let tempSubCategories = obj['subCategories'];
+            const tempCategory = obj['category'];
+            const tempSubCategories = obj['subCategories'];
 
             // Populate column object sums from americanStates (using variables from mockApiData)
-            let tempCategoryMatch = stateGroup.filter((item) => { return item.category === tempCategory; });
-            let sum = tempCategoryMatch.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
+            const tempCategoryMatch = stateGroup.filter((item) => { return item.category === tempCategory; });
+            const sum = tempCategoryMatch.reduce((sum, item) => { return sum = sum + item.sales; }, 0);
 
             // Build nested object for tempObj
-            let objScaffold = { category: tempCategory,
+            const objScaffold = { category: tempCategory,
                                 subTotal: sum,
                                 subcategories:
                                 [
                                   tempSubCategories.map((tempSubcategory) => {
-                                    let tempSubCategoryVal = tempSubcategory;
-                                    let tempSubCategoryMatch = stateGroup.filter((item) => { return item.subCategory === tempSubCategoryVal; });
-                                    let tempSum = tempSubCategoryMatch.reduce((tempSum, item) => { return tempSum = tempSum + item.sales; }, 0);
+                                    const tempSubCategoryVal = tempSubcategory;
+                                    const tempSubCategoryMatch = stateGroup.filter((item) => { return item.subCategory === tempSubCategoryVal; });
+                                    const tempSum = tempSubCategoryMatch.reduce((tempSum, item) => { return tempSum = tempSum + item.sales; }, 0);
                                     return [tempSubcategory, tempSum];
                                   })
                                 ]
@@ -52,26 +52,26 @@ class TableColumn extends React.Component {
       }
     }
 
-    let tableColumn = stateObjs.map((stateObj) => {
-      let singleStateObj = stateObj;
-      let singleStateGrandTotal = singleStateObj['grandTotal'];
+    const tableColumn = stateObjs.map((stateObj) => {
+      const singleStateObj = stateObj;
+      const singleStateGrandTotal = singleStateObj['grandTotal'];
 
-      let singleStateZero = singleStateObj['0'];
-      let singleStateZeroItems = singleStateObj['0']['subcategories'];
+      const singleStateZero = singleStateObj['0'];
+      const singleStateZeroItems = singleStateObj['0']['subcategories'];
 
-      let singleStateOne = singleStateObj['1'];
-      let singleStateOneItems = singleStateObj['1']['subcategories'];
+      const singleStateOne = singleStateObj['1'];
+      const singleStateOneItems = singleStateObj['1']['subcategories'];
 
-      let singleStateTwo = singleStateObj['2'];
-      let singleStateTwoItems = singleStateObj['2']['subcategories'];
+      const singleStateTwo = singleStateObj['2'];
+      const singleStateTwoItems = singleStateObj['2']['subcategories'];
 
       return  <div key={singleStateGrandTotal}>
                 <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
                    <div className='flex-container-right-column pt15'>
-                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[0][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[1][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[2][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateZeroItems.map((item) => {let tempItem = item[3][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => {const tempItem = item[0][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => {const tempItem = item[1][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => {const tempItem = item[2][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateZeroItems.map((item) => {const tempItem = item[3][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
                    </div>
                 </div>
                 <div className='flex-container-left-row'>
@@ -83,15 +83,15 @@ class TableColumn extends React.Component {
                 </div>
                 <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
                    <div className='flex-container-right-column pt15'>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[0][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[1][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[2][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[3][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[4][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[5][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[6][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[7][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateOneItems.map((item) => {let tempItem = item[8][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {const tempItem = item[0][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {const tempItem = item[1][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {const tempItem = item[2][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {const tempItem = item[3][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {const tempItem = item[4][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {const tempItem = item[5][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {const tempItem = item[6][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {const tempItem = item[7][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateOneItems.map((item) => {const tempItem = item[8][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
                    </div>
                 </div>
                 <div className='flex-container-left-row'>
@@ -103,10 +103,10 @@ class TableColumn extends React.Component {
                 </div>
                 <div className='column-container base-font-xs pl15 pr15 theme-light-gray-background'>
                    <div className='flex-container-right-column pt15'>
-                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[0][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[1][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[2][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
-                     <div className='pb10'>{singleStateTwoItems.map((item) => {let tempItem = item[3][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => {const tempItem = item[0][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => {const tempItem = item[1][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => {const tempItem = item[2][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
+                     <div className='pb10'>{singleStateTwoItems.map((item) => {const tempItem = item[3][1]; return tempItem.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")})}</div>
                    </div>
                 </div>
                 <div className='flex-container-left-row'>
@@ -130,10 +130,10 @@ class TableColumn extends React.Component {
   }
 
   render() {
-    let stateTitle = Object.keys(americanStates).map(key => (
+    const stateTitle = Object.keys(americanStates).map(key => (
       <div key={key}>
         <div className='flex-container-right-column column-underline full-width off-white theme-dark-blue-background'>
-         <div className='heading-sm column-title mt20 pl15 pr15'>
+         <div className='heading-sm column-title mt20 pl15 pr15 bold'>
            {key.split('_').join(' ')}
          </div>
         </div>

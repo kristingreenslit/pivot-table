@@ -7,9 +7,9 @@ class TableTrayComponent extends React.Component {
 
   _getTableTrayPanel() {
     for (const key in mockApiData) {
-       let categoryObjs = mockApiData[key];
+       const categoryObjs = mockApiData[key];
 
-       let tableTrayPanel = categoryObjs.map((obj) => {
+       const tableTrayPanel = categoryObjs.map((obj) => {
          return (<div key={obj['category']}>
                   <div className='flex-container-left-row'>
                     <div className='theme-light-gray-background'>
@@ -42,8 +42,8 @@ class TableTrayComponent extends React.Component {
             <div className='tray-banner pl15 pr15 tray-container off-white'>
               <div className='heading-md mt15 bold'>PRODUCTS</div>
               <div className='flex-container-left-row mt10'>
-                <div className='heading-sm mt20'>Category</div>
-                <div className='heading-sm mt20 flex-container-left-row-last-item'>Sub-Category</div>
+                <div className='heading-sm mt20 bold'>Category</div>
+                <div className='heading-sm mt20 flex-container-left-row-last-item bold'>Sub-Category</div>
               </div>
             </div>
           </div>
